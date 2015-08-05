@@ -16,7 +16,8 @@ public class WebHookParser extends Controller {
     @BodyParser.Of(BodyParser.Json.class)
     public Result parser (){
         JsonNode json = request().body().asJson();
-        String name = json.findPath( "name").textValue();
+        String name = json.findPath( "update_id").textValue();
+        System.out.println( name );
 
         return ok( "Hello" + name );
     }
